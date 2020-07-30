@@ -1,13 +1,15 @@
 import React from "react";
+import Routes from "./routes";
 import { Provider } from "react-redux";
 
-import CategoryList from "./pages/Category";
+import GlobalStyles from "./AppStyled";
 
 import store from "./store";
 
 const App = () => (
   <Provider store={store}>
-    <CategoryList />
+    <GlobalStyles />
+    <Routes />
   </Provider>
 );
 

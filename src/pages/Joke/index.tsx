@@ -1,17 +1,27 @@
 import React, { useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { GetCategoryRequest } from "../../store/modules/category/actions";
+import { GetJokeRequest } from "../../store/modules/joke/actions";
 
-const Category = () => {
+interface IProps {
+  match: {
+    params: {
+      id: string;
+    };
+  };
+}
+
+const Joke: React.FC<IProps> = ({ match }) => {
   const { isLoading, isSuccess, isError, data } = useSelector<any, any>(
-    (state) => state.category
+    (state) => state.joke
   );
   const dispatch = useDispatch();
 
+  const category = match?.params?.id;
+
   const handleCategoryequest = useCallback(
-    () => dispatch(GetCategoryRequest()),
-    [dispatch]
+    () => dispatch(GetJokeRequest(category)),
+    [dispatch, category]
   );
 
   useEffect(() => {
@@ -25,11 +35,8 @@ const Category = () => {
           {isLoading && <p>Loading</p>}
           {!isLoading && isSuccess && (
             <>
-              <ul>
-                {data.map((item: string) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+              <img src={data.icon_url} alt={data.value} />
+              <p>{data.value}</p>
             </>
           )}
         </div>
@@ -40,4 +47,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default Joke;
