@@ -1,6 +1,7 @@
 import React, { useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import Loading from "../../components/Loading";
 
 import { GetCategoryRequest } from "../../store/modules/home/actions";
 
@@ -23,12 +24,13 @@ const Home = () => {
     <>
       {!isError ? (
         <div>
-          {isLoading && <p>Loading</p>}
+          {isLoading && <Loading />}
           {!isLoading && isSuccess && (
             <>
-              {data.map((item: string) => (
-                <Link to={`joke/${item}`} key={item}>
-                  {item}
+              <Loading />
+              {data.map((category: string) => (
+                <Link to={`/category/${category}`} key={category}>
+                  {category}
                 </Link>
               ))}
             </>

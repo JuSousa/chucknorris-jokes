@@ -1,5 +1,8 @@
 import React, { useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { ROUTE_HOME } from "../../routesConfig";
+import Loading from "../../components/Loading";
 
 import { GetJokeRequest } from "../../store/modules/joke/actions";
 
@@ -32,9 +35,10 @@ const Joke: React.FC<IProps> = ({ match }) => {
     <>
       {!isError ? (
         <div>
-          {isLoading && <p>Loading</p>}
+          {isLoading && <Loading />}
           {!isLoading && isSuccess && (
             <>
+              <Link to={ROUTE_HOME}>Voltar</Link>
               <img src={data.icon_url} alt={data.value} />
               <p>{data.value}</p>
             </>
