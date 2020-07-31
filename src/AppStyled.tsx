@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
   body * {
-    font-weight: 300;
+    font-family: 'Patua One', cursive;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscal;
     -webkit-overflow-scrolling: touch;
@@ -56,7 +56,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
-  html, body, #app {
+  html, body {
     height: 100%;
     width: 100%;
   }

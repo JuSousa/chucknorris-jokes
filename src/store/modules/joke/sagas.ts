@@ -2,13 +2,12 @@ import api from "../../../services/api";
 import { GetJokeSuccess, GetJokeFailure } from "./actions";
 import { all, takeLatest, call, put } from "redux-saga/effects";
 import { Types } from "./types";
-
-interface NameProps {
+interface CategoryProps {
   category: string;
+  type: typeof Types.GET_JOKE_REQUEST;
 }
 
-function* getJokeData(name: any) {
-  const { category } = name;
+export function* getJokeData({ category }: CategoryProps) {
   try {
     const response = yield call(api.get, "/random", {
       params: { category },
