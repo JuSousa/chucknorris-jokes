@@ -2,7 +2,7 @@ import React from "react";
 import * as s from "./styled";
 
 interface IText {
-  children: string | any;
+  children: string | React.ReactNode;
   color?: "white" | "gray" | "orange" | "brown" | "unset";
   marginBottom?: number;
   maxWidth?: number;

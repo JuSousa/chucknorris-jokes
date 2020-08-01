@@ -17,6 +17,7 @@ const Home = () => {
   const { isLoading, isSuccess, isError, data } = useSelector<any, any>(
     (state) => state.category
   );
+
   const dispatch = useDispatch();
 
   const handleCategory = useCallback(() => dispatch(GetCategoryRequest()), [

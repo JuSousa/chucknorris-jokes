@@ -5,7 +5,7 @@ declare module "styled-components" {
   export interface DefaultTheme {
     colors: { [key in keyof typeof colors]: string };
     fontTypes: { [key in keyof typeof fontTypes]: any };
-    grid: { [key in keyof typeof grid]: any };
+    grid: { [key in keyof typeof grid]: React.ReactNode };
     mediaQueries: { [key in keyof typeof mediaQueries]: string };
     spacing: (x: number) => number;
   }

@@ -10,7 +10,7 @@ const INITIAL_STATE = {
 
 interface CategoryProps {
   type: keyof typeof Types;
-  payload: Array<any>;
+  payload: Array<string>;
 }
 
 export default function (state = INITIAL_STATE, action: CategoryProps) {

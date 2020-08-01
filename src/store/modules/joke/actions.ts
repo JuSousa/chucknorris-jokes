@@ -14,7 +14,7 @@ export function GetJokeSuccess(payload: {}) {
   };
 }
 
-export function GetJokeFailure(error: any) {
+export function GetJokeFailure(error: {}) {
   return {
     type: Types.GET_JOKE_FAILURE,
     payload: error,

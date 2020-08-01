@@ -13,7 +13,7 @@ export function GetCategorySuccess(payload: []) {
   };
 }
 
-export function GetCategoryFailure(error: any) {
+export function GetCategoryFailure(error: {}) {
   return {
     type: Types.GET_CATEGORY_FAILURE,
     payload: error,
