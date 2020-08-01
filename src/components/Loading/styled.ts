@@ -13,8 +13,8 @@ export const Position = styled.div`
 `;
 
 export const Spinner = styled.span`
-  border: 10px solid #fff;
-  border-top: 10px solid #efc46f;
+  border: 10px solid ${(props) => props.theme.colors.gray};
+  border-top: 10px solid ${(props) => props.theme.colors.orange};
   border-radius: 100%;
   width: 80px;
   height: 80px;

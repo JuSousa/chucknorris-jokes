@@ -1,10 +1,10 @@
 import React from "react";
-import * as Load from "./styled";
+import * as s from "./styled";
 
 const Loading = () => (
-  <Load.Position>
-    <Load.Spinner />
-  </Load.Position>
+  <s.Position>
+    <s.Spinner />
+  </s.Position>
 );
 
 export default Loading;

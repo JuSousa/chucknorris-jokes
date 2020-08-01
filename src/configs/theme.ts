@@ -12,7 +12,8 @@ declare module "styled-components" {
 }
 
 export const colors = {
-  gray: "#f1f1f1",
+  white: "#ffffff",
+  gray: "#e8e8e8",
   orange: "#ff6501",
   brown: "#583118",
   unset: "unset",
@@ -37,26 +38,23 @@ export const mediaQueries = {
 
 export const fontTypes = {
   title: {
-    fontSize: 92,
+    fontSize: 54,
     letterSpacing: 0,
     lineHeight: "125px",
   },
-  subtitle: {
-    fontSize: 56,
-    letterSpacing: 1,
-    lineHeight: "76px",
-  },
   text: {
-    fontSize: 16,
+    fontSize: 24,
+    lineHeight: "32px",
   },
   header: {
-    fontSize: 22,
-    letterSpacing: 0,
-    lineHeight: "30px",
-    color: colors.gray,
+    fontSize: 20,
+  },
+  headerSmall: {
+    fontSize: 16,
+    color: colors.white,
   },
   button: {
-    fontSize: 22,
+    fontSize: 18,
     letterSpacing: 0,
     lineHeight: "30px",
   },
@@ -67,7 +65,7 @@ const theme: DefaultTheme = {
   fontTypes,
   grid: grid,
   mediaQueries,
-  spacing: (number) => number * 7,
+  spacing: (number) => number * 8,
 };
 
 export default theme;

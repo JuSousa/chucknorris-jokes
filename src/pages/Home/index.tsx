@@ -1,9 +1,17 @@
 import React, { useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import Loading from "../../components/Loading";
 
 import { GetCategoryRequest } from "../../store/modules/home/actions";
+
+import Button from "../../components/Button";
+import Content from "../../components/Content";
+import Error from "../../components/Error";
+import Header from "../../components/Header";
+import Loading from "../../components/Loading";
+import Text from "../../components/Text";
+
+import * as s from "./styled";
 
 const Home = () => {
   const { isLoading, isSuccess, isError, data } = useSelector<any, any>(
@@ -11,33 +19,48 @@ const Home = () => {
   );
   const dispatch = useDispatch();
 
-  const handleCategoryequest = useCallback(
-    () => dispatch(GetCategoryRequest()),
-    [dispatch]
-  );
+  const handleCategory = useCallback(() => dispatch(GetCategoryRequest()), [
+    dispatch,
+  ]);
 
   useEffect(() => {
-    handleCategoryequest();
-  }, [handleCategoryequest]);
+    handleCategory();
+  }, [handleCategory]);
 
   return (
     <>
+      <Header />
       {!isError ? (
-        <div>
+        <Content>
           {isLoading && <Loading />}
           {!isLoading && isSuccess && (
             <>
-              <Loading />
-              {data.map((category: string) => (
-                <Link to={`/category/${category}`} key={category}>
-                  {category}
-                </Link>
-              ))}
+              <s.Introduction>
+                <s.ImageChuckNorris />
+                <s.Wrapper>
+                  <Text type="title" color="orange">
+                    Categories
+                  </Text>
+                  <Text>
+                    This is not a joke.
+                    <br />
+                    Select a category to be:
+                  </Text>
+                </s.Wrapper>
+              </s.Introduction>
+
+              <s.CategoryList>
+                {data.map((category: string) => (
+                  <Link to={`/category/${category}`} key={category}>
+                    <Button outline>{category}</Button>
+                  </Link>
+                ))}
+              </s.CategoryList>
             </>
           )}
-        </div>
+        </Content>
       ) : (
-        <p>Error</p>
+        <Error message="the categories failed." handleButton={handleCategory} />
       )}
     </>
   );

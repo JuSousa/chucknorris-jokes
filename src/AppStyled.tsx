@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export default createGlobalStyle`
   body * {
     font-family: 'Patua One', cursive;
+    font-weight: 300;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscal;
     -webkit-overflow-scrolling: touch;
@@ -31,36 +32,5 @@ export default createGlobalStyle`
 
   ol, ul {
     list-style: none;
-  }
-
-  blockquote, q {
-    quotes: none;
-  }
-
-  blockquote:before, blockquote:after {
-    content: '';
-    content: none;
-  }
-
-  q:before, q:after {
-    content: '';
-    content: none;
-  }
-
-  table {
-    border-collapse: collapse;
-    border-spacing: 0;
-  }
-
-  * {
-    box-sizing: border-box;
-  }
-
-  html, body {
-    height: 100%;
-    width: 100%;
-  }
-  #root {
-    height: 100%;
   }
 `;
